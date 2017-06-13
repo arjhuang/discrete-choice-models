@@ -7,5 +7,5 @@ https://cran.r-project.org/web/packages/mlogit/vignettes/Exercises.pdf
 Exercise Code in R:    
 https://github.com/cran/mlogit/blob/master/inst/doc/Exercises.R
 
-R Package Reference:    
+mlogit Package Reference:    
 https://cran.r-project.org/web/packages/mlogit/mlogit.pdf    

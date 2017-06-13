@@ -7,5 +7,5 @@ https://cran.r-project.org/web/packages/mlogit/vignettes/Exercises.pdf
 Exercise Code in R:    
 https://github.com/cran/mlogit/blob/master/inst/doc/Exercises.R
 
-Multinomial Logit Model Package Reference:    
+Multinomial Logit Model R Package Reference:    
 https://cran.r-project.org/web/packages/mlogit/mlogit.pdf    

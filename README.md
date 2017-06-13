@@ -1,4 +1,4 @@
-# Discrete-Choice-Model
+# Discrete-Choice-Models
 My practices on Kenneth Train's Exercises in R.
 
 Kenneth Train’s exercises using the mlogit package for R:     

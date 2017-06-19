@@ -1,4 +1,8 @@
-1. The problem set uses data on choice of heating system in California houses. The data set Heating from the mlogit package contains the data in R format. The observations consist of single-family houses in California that were newly built and had central airconditioning. The choice is among heating systems. Five types of systems are considered to have been possible:
+1. The problem set uses data on choice of heating system in California houses. 
+The data set Heating from the mlogit package contains the data in R format. 
+The observations consist of single-family houses in California that were newly 
+built and had central airconditioning. The choice is among heating systems. 
+Five types of systems are considered to have been possible:
 
 1. gas central (gc),
 2. gas room (gr),
@@ -13,14 +17,41 @@ There are 900 observations with the following variables:
 • ic.alt is the installation cost for the 5 alternatives,
 • oc.alt is the annual operating cost for the 5 alternatives,
 • income is the annual income of the household,
-2 Kenneth Train’s exercises using the mlogit package for R
+2 Kenneth Train’s exercises 
+using the mlogit package for R
 • agehed is the age of the household head,
 • rooms is the number of rooms in the house,
-• region a factor with levels ncostl (northern coastal region), scostl (southern coastal region), mountn (mountain region), valley (central valley region).
+• region a factor with levels ncostl (northern coastal region), scostl 
+(southern coastal region), mountn (mountain region), valley (central valley 
+region).
 
-Note that the attributes of the alternatives, namely, installation cost and operating cost, take a different value for each alternative. Therefore, there are 5 installation costs (one for each of the 5 systems) and 5 operating costs. To estimate the logit model, the researcher needs data on the attributes of all the alternatives, not just the attributes for the chosen alternative. For example, it is not sufficient for the researcher to determine how much was paid for the system that was actually installed (ie., the bill for the installation). The researcher needs to determine how much it would have cost to install each of the systems if they had been installed. The importance of costs in the choice process (i.e.,
-the coefficients of installation and operating costs) is determined through comparison of the costs of the chosen system with the costs of the non-chosen systems.
+Note that the attributes of the alternatives, namely, installation cost and 
+operating cost, take a different value for each alternative. Therefore, there 
+are 5 installation costs (one for each of the 5 systems) and 5 operating costs. 
+To estimate the logit model, the researcher needs data on the attributes of 
+all the alternatives, not just the attributes for the chosen alternative. 
+For example, it is not sufficient for the researcher to determine how much was 
+paid for the system that was actually installed (ie., the bill for the 
+installation). The researcher needs to determine how much it would have cost to 
+install each of the systems if they had been installed. The importance of costs 
+in the choice process (i.e., the coefficients of installation and operating costs) 
+is determined through comparison of the costs of the chosen system with the costs 
+of the non-chosen systems.
 
-For these data, the costs were calculated as the amount the system would cost if it were installed in the house, given the characteristics of the house (such as size), the price of gas and electricity in the house location, and the weather conditions in the area (which determine the necessary capacity of the system and the amount it will be run.) These cost are conditional on the house having central air-conditioning. (That’s why the installation cost of gas central is lower than that for gas room: the central system can use the air-conditioning ducts that have been installed.)
+For these data, the costs were calculated as the amount the system would cost if 
+it were installed in the house, given the characteristics of the house (such as 
+size), the price of gas and electricity in the house location, and the weather 
+conditions in the area (which determine the necessary capacity of the system and 
+the amount it will be run.) These cost are conditional on the house having central 
+air-conditioning. (That’s why the installation cost of gas central is lower than 
+that for gas room: the central system can use the air-conditioning ducts that have 
+been installed.)
 
-In a logit model, each variable takes a different value in each alternative. So, in our case, for example, we want to know the coefficient of installation cost in the logit model of system choice. The variable installation cost in the model actually consists of five variables in the dataset: ic.gc, ic.gr, ic.ec, ic.er and ic.hp, for the installation costs of the five systems. In the current code, there are two variables in the logit model. The first variable is called ic for installation cost. This variable consists of five variables in the dataset: ic.gc in the first alternative, ic.gr in the second alternative, etc.
+In a logit model, each variable takes a different value in each alternative. So, 
+in our case, for example, we want to know the coefficient of installation cost in 
+the logit model of system choice. The variable installation cost in the model 
+actually consists of five variables in the dataset: ic.gc, ic.gr, ic.ec, ic.er 
+and ic.hp, for the installation costs of the five systems. In the current code, 
+there are two variables in the logit model. The first variable is called ic for 
+installation cost. This variable consists of five variables in the dataset: ic.gc 
+in the first alternative, ic.gr in the second alternative, etc.

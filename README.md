@@ -11,6 +11,6 @@ Multinomial Logit Model R Package Reference:
 https://cran.r-project.org/web/packages/mlogit/mlogit.pdf    
 
 ----
-- Exercise 1 provides background of this project
-- Exercise 2 An unconstrained model is introduced, estimate lifecycle cost of the system based on installation cost and operation cost
-- Exercise 3 introduces discount rate r of operation cost, lifecycle cost now is estimated on installation cost and operation cost devided by discount rate r. 
+- Exercise 1 provides background of this project.
+- Exercise 2 introduces an unconstrained model, estimating lifecycle cost of the system based on installation cost and operation cost.
+- Exercise 3 introduces discount rate r of operation cost. Lifecycle cost now is estimated on installation cost and operation cost devided by discount rate r. 

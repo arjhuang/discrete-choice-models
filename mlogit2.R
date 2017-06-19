@@ -12,36 +12,44 @@ View(Heating)
 H <- mlogit.data(Heating, shape="wide", choice="depvar", varying=c(3:12))
 View(H)
 
-# Question: Estimate a model of which "Willingness to Pay" (wtp) equals 8.33,
-# test the hypothesis that discount rate r equals 0.12
-
-# Answer: Lifecycle cost (LCC) = Installation cost (IC) + Opeartion Cost Over time (OC/r),
-# in this case LCC = ic + oc/0.12
-H$lcc=H$ic+H$oc/0.12
-
-# estimation by maximum likelihood of the multinomial logit model
-# specific variables: lifecycle cost
-mlcc <- mlogit(depvar~lcc|0, H)
-
-# For comparison, run estimation model 1 again 
 # estimation by maximum likelihood of the multinomial logit model
 # specific variables: installation cost and operation cost
 m <- mlogit(depvar~ic+oc|0, H)
 
-#Likelihood ratio test
-lrtest(m, mlcc)
+summary(m)
 
-# Result from likelihood ratio test:
-# model 1, lnL = -1095.2
-# model 2, lnL = -1248.7
-# 2(1248.7 - 1095.2) = 307
+# Question A: Do the estimated coefficients have the expected signs?
+# Answer: Yes, result is a negative log-likelihood (-1095.2), indicates when a system price rises, its chance of being installed falls.
 # 
-# Critical value of chi-squared with 1 degree of freedom, 
-# since testing on one restriction in this case 
-# 95% confidence level, lower.tail = FALSE testing probability P[X>x]
-qchisq(0.05, df = 1, lower.tail = FALSE)
+# Question B: Are both coefficients significantly different from zero?
+# Answer: Yes, t-value great than 1.96 (95% confidence level)
+# 
+# apply function: MARGIN = 2, applies over columns
+# apply function: FUN = mean, apply mean function to data
+# fitted function: outcome=FALSE, predict probabilities for all the alternatives
+apply(fitted(m, outcome=FALSE), 2, mean)
 
-# Critical value 3.841459
-# 307>3.841459
 
-# Reject hypothesis that r=0.12
+# Question C: How closely do the average probabilities match the shares of customers choosing each alternative?
+# Answer: 
+# Results from summary(m)
+# Frequencies of alternatives:
+#       ec       er       gc       gr       hp 
+# 0.071111 0.093333 0.636667 0.143333 0.055556 
+# 
+# Results from prediction:
+# Frequencies of alternatives:
+#         ec         er         gc         gr         hp 
+# 0.10413057 0.05141477 0.51695653 0.24030898 0.08718915 
+
+# Question D:The ratio of coefficients usually provides economically meaningful information. The
+# willingness to pay (wtp) through higher installation cost for a one-dollar reduction in
+# operating costs is the ratio of the operating cost coefficient to the installation cost coefficient.
+# What is the estimated wtp from this model? Is it reasonable in magnitude?
+
+coef(m)["oc"]/coef(m)["ic"]
+
+# Answer:
+# oc 
+# 0.7349453 
+
